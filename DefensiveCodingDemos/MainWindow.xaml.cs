@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace DefensiveCodingDemos
+namespace DCM.WPF
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -23,6 +23,11 @@ namespace DefensiveCodingDemos
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void placeOrder_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
