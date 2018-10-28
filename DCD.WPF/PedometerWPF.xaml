@@ -1,0 +1,18 @@
+﻿<Window x:Class="DCD.WPF.PedometerWPF"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DCD.WPF"
+        mc:Ignorable="d"
+        Title="PedometerWPF" Height="226.404" Width="415.488">
+    <Grid>
+        <Label Content="Step Goal for Today:" Margin="30,16,247,0" VerticalAlignment="Top"/>
+        <Label Content="Number of Steps Today:" Margin="10,47,247,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="GoalTextBox" Height="23" Margin="151,19,122,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBox x:Name="StepsTextBox" Height="23" Margin="151,50,122,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <Button Content="Calculate" Margin="0,19,10,0" VerticalAlignment="Top" Height="54" Click="Button_Click" HorizontalAlignment="Right" Width="89"/>
+        <Label x:Name="ResultLabel" Content="" HorizontalAlignment="Left" Margin="10,97,0,0" VerticalAlignment="Top" Width="355"/>
+
+    </Grid>
+</Window>

@@ -24,5 +24,27 @@ namespace DCD.BL
             //if not,
             //request an email address from the user
         }
+
+        public decimal CalculatePercentOfGoalSteps(string goalSteps, string actualSteps)
+        {
+            if (string.IsNullOrWhiteSpace(goalSteps)) throw new ArgumentException("Goal must be entered", "goalSteps");
+            if (string.IsNullOrWhiteSpace(actualSteps)) throw new ArgumentException("Actual steps must be entered", "actualSteps");
+
+            if (!decimal.TryParse(goalSteps, out var goalStepCount)) throw new ArgumentException("Goal must be numeric", "goalSteps");
+            if (!decimal.TryParse(actualSteps, out var actualStepCount)) throw new ArgumentException("Actual steps must be numeric", "actualSteps");
+
+            if (goalStepCount <= 0) throw new ArgumentException("Goal must be greater than 0", "goalSteps");
+
+            return CalculatePercentOfGoalSteps(goalStepCount, actualStepCount);
+        }
+
+        public decimal CalculatePercentOfGoalSteps(decimal goalStepCount, decimal actualStepCount)
+        {
+            decimal result = 0;
+
+            if (goalStepCount <= 0) throw new ArgumentException("Goal must be greater than 0", "goalSteps");
+
+            return result = (actualStepCount / goalStepCount);
+        }
     }
 }
