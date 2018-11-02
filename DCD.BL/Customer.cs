@@ -30,8 +30,8 @@ namespace DCD.BL
             if (string.IsNullOrWhiteSpace(goalSteps)) throw new ArgumentException("Goal must be entered", "goalSteps");
             if (string.IsNullOrWhiteSpace(actualSteps)) throw new ArgumentException("Actual steps must be entered", "actualSteps");
 
-            if (!decimal.TryParse(goalSteps, out var goalStepCount)) throw new ArgumentException("Goal must be numeric", "goalSteps");
-            if (!decimal.TryParse(actualSteps, out var actualStepCount)) throw new ArgumentException("Actual steps must be numeric", "actualSteps");
+            if (!decimal.TryParse(goalSteps, out decimal goalStepCount)) throw new ArgumentException("Goal must be numeric");
+            if (!decimal.TryParse(actualSteps, out decimal actualStepCount)) throw new ArgumentException("Actual steps must be numeric", "actualSteps");
 
             if (goalStepCount <= 0) throw new ArgumentException("Goal must be greater than 0", "goalSteps");
 
@@ -40,11 +40,9 @@ namespace DCD.BL
 
         public decimal CalculatePercentOfGoalSteps(decimal goalStepCount, decimal actualStepCount)
         {
-            decimal result = 0;
-
             if (goalStepCount <= 0) throw new ArgumentException("Goal must be greater than 0", "goalSteps");
 
-            return result = (actualStepCount / goalStepCount);
+            return Math.Round((actualStepCount / goalStepCount) * 100, 2);
         }
     }
 }
