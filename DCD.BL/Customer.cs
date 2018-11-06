@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Core.Common;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,13 +17,39 @@ namespace DCD.BL
 
         public string LastName { get; set; }
 
-        public void ValidateEmail()
+        public OperationResult ValidateEmail()
         {
-            //if the user requested a receipt
-            //get the customer data
-            //ensure a valid email address was provided
-            //if not,
-            //request an email address from the user
+            OperationResult op = new OperationResult();
+            if (string.IsNullOrWhiteSpace(this.EmailAddress))
+            {
+                op.Success = false;
+                op.AddMessage("Email address is null");
+            }
+
+            if (op.Success == true)
+            {
+                var isValidFormat = true;
+                // Code here that validates the format of the email
+                // using Regex
+                if (!isValidFormat)
+                {
+                    op.Success = false;
+                    op.AddMessage("Email address is not in a correct format");
+                }
+            }
+
+            if (op.Success == true)
+            {
+                var isRealDomain = true;
+                // Code here that confirms whether domain exists
+                if (!isRealDomain)
+                {
+                    op.Success = false;
+                    op.AddMessage("Email address does not include a valid domain");
+                }
+            }
+
+            return op;
         }
 
         public decimal CalculatePercentOfGoalSteps(string goalSteps, string actualSteps)
