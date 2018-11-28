@@ -8,6 +8,6 @@ namespace DCD.BL
 {
     public class Order
     {
-        //TODO: Create Order Props
+        //TODO: Add Order Props
     }
 }
